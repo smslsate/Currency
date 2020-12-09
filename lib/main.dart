@@ -11,7 +11,6 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,7 +34,6 @@ class _HomeState extends State<Home> {
   String _base = "USD";
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _data = fetchAPI(http.Client());
   }
@@ -55,7 +53,6 @@ class _HomeState extends State<Home> {
             onSelected: (value) {
               setState(() {
                 _base = value.toString();
-                // Fetching And Updating Data Again,.....
                 _data = fetchAPI(http.Client());
               });
             },
@@ -117,7 +114,6 @@ class _HomeState extends State<Home> {
             child: FutureBuilder(
               future: _data,
               builder: (context, snapshot) {
-                // CHecking data is available....
                 return snapshot.hasData
                     ? ListView.builder(
                         itemCount: snapshot.data.rates.length,
@@ -135,8 +131,6 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-
-  // Row View....
 
   @override
   Widget RowView(BuildContext context, MapEntry<String, dynamic> rate) {
@@ -172,6 +166,8 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+//Get API from EU central bank
 
   Future<Currency> fetchAPI(http.Client client) async {
     final response =

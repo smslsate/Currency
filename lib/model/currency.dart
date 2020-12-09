@@ -13,3 +13,5 @@ class Currency {
         base: json['base']);
   }
 }
+
+//parse Jaon
